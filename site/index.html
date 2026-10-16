@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日本の暦</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <h1>日本の暦</h1>
+      <p class="sub">二十四節気・七十二候・雑節・六曜</p>
+    </div>
+    <nav class="year-nav">
+      <button id="prevYear" type="button" aria-label="前年">‹ 前年</button>
+      <select id="yearSelect" aria-label="年を選択"></select>
+      <button id="nextYear" type="button" aria-label="翌年">翌年 ›</button>
+      <button id="thisYear" type="button">今年</button>
+    </nav>
+  </div>
+  <div class="year-head" id="yearHead"></div>
+</header>
+
+<main id="main">
+  <div class="months" id="months"></div>
+
+  <section class="summaries">
+    <div class="sum-col">
+      <h3>国民の祝日</h3>
+      <ul id="holidayList"></ul>
+    </div>
+    <div class="sum-col">
+      <h3>二十四節気</h3>
+      <ul id="sekkiList"></ul>
+    </div>
+    <div class="sum-col">
+      <h3>雑節・年中行事</h3>
+      <ul id="zassetsuList"></ul>
+    </div>
+  </section>
+
+  <details class="kou-list">
+    <summary>七十二候（この年の巡り）</summary>
+    <table id="kouTable"></table>
+  </details>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+</main>
+
+<aside id="detail" class="detail" hidden>
+  <div class="detail-inner">
+    <button id="detailClose" class="detail-close" type="button" aria-label="閉じる">×</button>
+    <h3 id="detailTitle"></h3>
+    <table id="detailTable"></table>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "nihon-koyomi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "日本の暦（祝日・二十四節気・七十二候・雑節・六曜・旧暦）のデータ生成、閲覧サイト、印刷用PDF",
+  "scripts": {
+    "build": "node scripts/build-data.mjs",
+    "verify": "node scripts/verify.mjs",
+    "print": "node scripts/build-print.mjs",
+    "pdf": "node scripts/build-print.mjs --pdf",
+    "serve": "python3 -m http.server 8137 --directory site"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "astronomy-engine": "^2.1.19"
+  }
+}

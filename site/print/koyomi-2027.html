@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>日本の暦 2027年 印刷用</title>
+<style>
+@page { size: A4 portrait; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "Noto Serif CJK JP", serif;
+  color: #2a2620;
+  background: #fff;
+}
+.page {
+  width: 210mm; height: 297mm;
+  padding: 11mm 12mm 10mm;
+  page-break-after: always;
+  overflow: hidden;
+  position: relative;
+}
+.page:last-child { page-break-after: auto; }
+.hl { color: #b03a2e; } .sg { color: #3d6b4a; } .tm { color: #6b6355; font-variant-numeric: tabular-nums; }
+
+.cover { display: flex; flex-direction: column; }
+.cover-head { text-align: center; margin-top: 14mm; }
+.cover-kicker { letter-spacing: 0.5em; font-size: 10pt; color: #6b6355; }
+.cover h1 { font-size: 40pt; letter-spacing: 0.30em; margin: 8mm 0 6mm; font-weight: 600; }
+.cover-year { font-size: 15pt; letter-spacing: 0.12em; }
+.cover-year .sep { margin: 0 0.4em; color: #b7a98a; }
+
+.legend { margin: 10mm auto 8mm; display: grid; grid-template-columns: repeat(4, auto); gap: 4mm 8mm; justify-content: center; font-size: 9pt; }
+.lg { display: flex; align-items: center; gap: 2mm; }
+.sw { width: 4mm; height: 4mm; border: 0.3mm solid #d8cfba; }
+.sw.h { background: #f6dcd4; border-color: #b03a2e; }
+.sw.sun { background: #b03a2e; }
+.sw.sat { background: #2e4a7d; }
+.sw.s { background: #3d6b4a; }
+.sw.k { background: #9db28c; }
+.sw.e { background: #96601f; }
+.sw.ro { background: #6b6355; }
+.sw.ky { background: #c9c0aa; }
+
+.cover-lists { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm 7mm; margin: 0 2mm; }
+.cl h2 { font-size: 11pt; letter-spacing: 0.3em; border-bottom: 0.4mm solid #d8cfba; padding-bottom: 1.5mm; margin-bottom: 2mm; }
+.cl table { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+.cl td { padding: 0.7mm 2mm 0.7mm 0; border-bottom: 0.2mm dashed #eee7d5; }
+.cl td:first-child { width: 12mm; color: #6b6355; }
+
+.cover-foot { margin-top: auto; font-size: 7pt; color: #6b6355; line-height: 1.7; border-top: 0.3mm solid #d8cfba; padding-top: 3mm; }
+
+.month-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 3mm; border-bottom: 0.4mm solid #d8cfba; padding-bottom: 2mm; }
+.month-head h2 { font-weight: 600; }
+.month-head .mn { font-size: 17pt; letter-spacing: 0.15em; }
+.month-head .alias { font-size: 9pt; color: #6b6355; letter-spacing: 0.3em; margin-left: 3mm; }
+.month-sekki { font-size: 8.5pt; color: #3d6b4a; }
+
+.wdays { display: grid; grid-template-columns: repeat(7, 1fr); font-size: 8pt; text-align: center; color: #6b6355; margin-bottom: 1mm; }
+.wd.sun { color: #b03a2e; } .wd.sat { color: #2e4a7d; }
+
+.pgrid { display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: calc(250mm / var(--rows, 6)); border: 0.3mm solid #d8cfba; }
+.pcell { border: 0.2mm solid #e7e0cd; padding: 1mm 1.6mm; display: flex; flex-direction: column; overflow: hidden; }
+.pcell.empty { background: #faf7ee; }
+.pcell.holiday { background: #fdf2ee; }
+.pcell .r1 { display: flex; align-items: baseline; gap: 2mm; }
+.pcell .dn { font-size: 13pt; font-weight: 600; }
+.pcell.sun .dn, .pcell.holiday .dn { color: #b03a2e; }
+.pcell.sat .dn { color: #2e4a7d; }
+.pcell .ro { font-size: 7pt; color: #6b6355; margin-left: auto; }
+.pcell .evs { margin-top: 0.8mm; flex: 1; }
+.pcell .ev { font-size: 7.3pt; line-height: 1.35; white-space: nowrap; overflow: hidden; }
+.pcell .ev.h { color: #b03a2e; font-weight: 600; }
+.pcell .ev.s { color: #3d6b4a; }
+.pcell .ev.k { color: #7a8f6b; }
+.pcell .ev.e { color: #96601f; }
+.pcell .ky { font-size: 6.3pt; color: #a89f8a; text-align: right; }
+
+.kou-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+.kou-cols table { width: 100%; border-collapse: collapse; font-size: 8pt; }
+.kou-cols td { border-bottom: 0.2mm dashed #eee7d5; padding: 0.9mm 2mm 0.9mm 0; }
+.kou-cols td.tm { width: 20mm; }
+.kou-cols td.part { color: #6b6355; font-size: 7pt; }
+
+@media screen {
+  body { background: #d9d2c0; }
+  .page { margin: 6mm auto; background: #fff; box-shadow: 0 0 6mm rgba(0,0,0,0.25); }
+}
+</style>
+</head>
+<body>
+<section class="page cover">
+  <div class="cover-head">
+    <div class="cover-kicker">二十四節気・七十二候・雑節・六曜</div>
+    <h1>日本の暦</h1>
+    <div class="cover-year">令和9年<span class="sep">｜</span>西暦 2027 年<span class="sep">｜</span><span class="hl">丁未</span>の年</div>
+  </div>
+  <div class="legend">
+    <div class="lg"><span class="sw h"></span>祝日</div>
+    <div class="lg"><span class="sw sun"></span>日曜</div>
+    <div class="lg"><span class="sw sat"></span>土曜</div>
+    <div class="lg"><span class="sw s"></span>二十四節気</div>
+    <div class="lg"><span class="sw k"></span>七十二候</div>
+    <div class="lg"><span class="sw e"></span>雑節・行事</div>
+    <div class="lg"><span class="sw ro"></span>六曜</div>
+    <div class="lg"><span class="sw ky"></span>旧暦（天保暦）</div>
+  </div>
+  <div class="cover-lists">
+    <div class="cl">
+      <h2>二十四節気</h2>
+      <table><tr><td>1/5(火)</td><td class="sg">小寒</td><td class="tm">23:10</td></tr><tr><td>1/20(水)</td><td class="sg">大寒</td><td class="tm">16:30</td></tr><tr><td>2/4(木)</td><td class="sg">立春</td><td class="tm">10:46</td></tr><tr><td>2/19(金)</td><td class="sg">雨水</td><td class="tm">06:33</td></tr><tr><td>3/6(土)</td><td class="sg">啓蟄</td><td class="tm">04:39</td></tr><tr><td>3/21(日)</td><td class="sg">春分</td><td class="tm">05:24</td></tr><tr><td>4/5(月)</td><td class="sg">清明</td><td class="tm">09:17</td></tr><tr><td>4/20(火)</td><td class="sg">穀雨</td><td class="tm">16:17</td></tr><tr><td>5/6(木)</td><td class="sg">立夏</td><td class="tm">02:24</td></tr><tr><td>5/21(金)</td><td class="sg">小満</td><td class="tm">15:17</td></tr><tr><td>6/6(日)</td><td class="sg">芒種</td><td class="tm">06:25</td></tr><tr><td>6/21(月)</td><td class="sg">夏至</td><td class="tm">23:10</td></tr><tr><td>7/7(水)</td><td class="sg">小暑</td><td class="tm">16:36</td></tr><tr><td>7/23(金)</td><td class="sg">大暑</td><td class="tm">10:04</td></tr><tr><td>8/8(日)</td><td class="sg">立秋</td><td class="tm">02:26</td></tr><tr><td>8/23(月)</td><td class="sg">処暑</td><td class="tm">17:13</td></tr><tr><td>9/8(水)</td><td class="sg">白露</td><td class="tm">05:28</td></tr><tr><td>9/23(木)</td><td class="sg">秋分</td><td class="tm">15:01</td></tr><tr><td>10/8(金)</td><td class="sg">寒露</td><td class="tm">21:16</td></tr><tr><td>10/24(日)</td><td class="sg">霜降</td><td class="tm">00:32</td></tr><tr><td>11/8(月)</td><td class="sg">立冬</td><td class="tm">00:38</td></tr><tr><td>11/22(月)</td><td class="sg">小雪</td><td class="tm">22:16</td></tr><tr><td>12/7(火)</td><td class="sg">大雪</td><td class="tm">17:37</td></tr><tr><td>12/22(水)</td><td class="sg">冬至</td><td class="tm">11:42</td></tr></table>
+    </div>
+    <div class="cl">
+      <h2>雑節・年中行事</h2>
+      <table><tr><td>2/8(月)</td><td>初午</td></tr><tr><td>2/3(水)</td><td>節分</td></tr><tr><td>3/18(木)</td><td>春彼岸(入り)</td></tr><tr><td>3/21(日)</td><td>春彼岸(中日)</td></tr><tr><td>3/24(水)</td><td>春彼岸(明け)</td></tr><tr><td>9/20(月)</td><td>秋彼岸(入り)</td></tr><tr><td>9/23(木)</td><td>秋彼岸(中日)</td></tr><tr><td>9/26(日)</td><td>秋彼岸(明け)</td></tr><tr><td>5/2(日)</td><td>八十八夜</td></tr><tr><td>9/1(水)</td><td>二百十日</td></tr><tr><td>9/11(土)</td><td>二百二十日</td></tr><tr><td>6/11(金)</td><td>入梅</td></tr><tr><td>7/2(金)</td><td>半夏生</td></tr><tr><td>1/17(日)</td><td>冬土用入り</td></tr><tr><td>1/22(金)</td><td>土用の丑の日</td></tr><tr><td>2/3(水)</td><td>土用の丑の日</td></tr><tr><td>4/17(土)</td><td>春土用入り</td></tr><tr><td>4/28(水)</td><td>土用の丑の日</td></tr><tr><td>7/20(火)</td><td>夏土用入り</td></tr><tr><td>7/21(水)</td><td>土用の丑の日</td></tr><tr><td>8/2(月)</td><td>土用の丑の日</td></tr><tr><td>10/21(木)</td><td>秋土用入り</td></tr><tr><td>10/25(月)</td><td>土用の丑の日</td></tr><tr><td>11/6(土)</td><td>土用の丑の日</td></tr><tr><td>3/20(土)</td><td>春社日</td></tr><tr><td>9/26(日)</td><td>秋社日</td></tr></table>
+    </div>
+    <div class="cl">
+      <h2>国民の祝日</h2>
+      <table><tr><td>1/1(金)</td><td class="hl">元日</td></tr><tr><td>1/11(月)</td><td class="hl">成人の日</td></tr><tr><td>2/11(木)</td><td class="hl">建国記念の日</td></tr><tr><td>2/23(火)</td><td class="hl">天皇誕生日</td></tr><tr><td>3/21(日)</td><td class="hl">春分の日</td></tr><tr><td>3/22(月)</td><td class="hl">休日</td></tr><tr><td>4/29(木)</td><td class="hl">昭和の日</td></tr><tr><td>5/3(月)</td><td class="hl">憲法記念日</td></tr><tr><td>5/4(火)</td><td class="hl">みどりの日</td></tr><tr><td>5/5(水)</td><td class="hl">こどもの日</td></tr><tr><td>7/19(月)</td><td class="hl">海の日</td></tr><tr><td>8/11(水)</td><td class="hl">山の日</td></tr><tr><td>9/20(月)</td><td class="hl">敬老の日</td></tr><tr><td>9/23(木)</td><td class="hl">秋分の日</td></tr><tr><td>10/11(月)</td><td class="hl">スポーツの日</td></tr><tr><td>11/3(水)</td><td class="hl">文化の日</td></tr><tr><td>11/23(火)</td><td class="hl">勤労感謝の日</td></tr></table>
+    </div>
+  </div>
+  <div class="cover-foot">
+    祝日: 内閣府「国民の祝日」CSV（政令・官報告示に基づく）／二十四節気・雑節: 国立天文台暦要項に準拠した天文計算（中央標準時）<br>
+    旧暦・六曜・干支: 天保暦による計算／七十二候: 日本で慣用される七十二候表（節気日から5日ごと）
+  </div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">1月</span><span class="alias">睦月</span></h2>
+    <div class="month-sekki">小寒 1/5 23:10　／　大寒 1/20 16:30</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:6"><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell holiday">
+  <div class="r1"><span class="dn">1</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev h">元日</div><div class="ev k">雪下出麦</div></div>
+  <div class="ky">旧11/24</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">2</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/25</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">3</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/26</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">4</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/27</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">5</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev s">小寒</div><div class="ev k">芹乃栄</div></div>
+  <div class="ky">旧11/28</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">6</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">7</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev e">七草</div></div>
+  <div class="ky">旧11/30</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/1</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">9</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/2</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">10</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev k">水泉動</div></div>
+  <div class="ky">旧12/3</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">11</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev h">成人の日</div><div class="ev e">鏡開き</div></div>
+  <div class="ky">旧12/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">13</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/6</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">14</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/7</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev k">雉始雊</div><div class="ev e">小正月</div></div>
+  <div class="ky">旧12/8</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">16</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/9</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">17</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev e">冬土用入り</div></div>
+  <div class="ky">旧12/10</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">18</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">19</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">20</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev s">大寒</div><div class="ev k">款冬華</div></div>
+  <div class="ky">旧12/13</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">21</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/14</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev e">土用の丑の日</div></div>
+  <div class="ky">旧12/15</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">23</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/16</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">24</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/17</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">25</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev k">水沢腹堅</div></div>
+  <div class="ky">旧12/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">27</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/20</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">28</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/21</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">29</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/22</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">30</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev k">鶏始乳</div></div>
+  <div class="ky">旧12/23</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">31</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/24</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">2月</span><span class="alias">如月</span></h2>
+    <div class="month-sekki">立春 2/4 10:46　／　雨水 2/19 06:33</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/26</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">3</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev e">節分</div><div class="ev e">土用の丑の日</div></div>
+  <div class="ky">旧12/27</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">4</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev s">立春</div><div class="ev k">東風解凍</div></div>
+  <div class="ky">旧12/28</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">5</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/29</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">6</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/30</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">7</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev e">針供養</div><div class="ev e">初午</div></div>
+  <div class="ky">旧1/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev k">黄鶯睍睆</div></div>
+  <div class="ky">旧1/3</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">10</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/4</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">11</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev h">建国記念の日</div></div>
+  <div class="ky">旧1/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/6</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">13</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/7</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">14</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev k">魚上氷</div></div>
+  <div class="ky">旧1/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/9</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/10</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">17</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">18</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">19</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev s">雨水</div><div class="ev k">土脉潤起</div></div>
+  <div class="ky">旧1/13</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">20</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/14</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">21</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/15</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/16</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">23</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev h">天皇誕生日</div></div>
+  <div class="ky">旧1/17</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">24</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev k">霞始靆</div></div>
+  <div class="ky">旧1/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">25</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/20</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">27</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/21</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">28</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/22</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">3月</span><span class="alias">弥生</span></h2>
+    <div class="month-sekki">啓蟄 3/6 04:39　／　春分 3/21 05:24</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev k">草木萌動</div></div>
+  <div class="ky">旧1/23</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/24</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">3</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev e">桃の節句</div></div>
+  <div class="ky">旧1/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">4</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/26</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">5</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/27</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">6</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev s">啓蟄</div><div class="ev k">蟄虫啓戸</div></div>
+  <div class="ky">旧1/28</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">7</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧1/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">10</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/3</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">11</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev k">桃始笑</div></div>
+  <div class="ky">旧2/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/5</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">13</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/6</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">14</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/7</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev k">菜虫化蝶</div></div>
+  <div class="ky">旧2/9</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">17</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/10</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">18</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev e">春彼岸(入り)</div></div>
+  <div class="ky">旧2/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">19</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/12</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">20</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev e">春社日</div></div>
+  <div class="ky">旧2/13</div>
+</div><div class="pcell sun holiday">
+  <div class="r1"><span class="dn">21</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev h">春分の日</div><div class="ev s">春分</div><div class="ev k">雀始巣</div><div class="ev e">春彼岸(中日)</div></div>
+  <div class="ky">旧2/14</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">22</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev h">休日</div></div>
+  <div class="ky">旧2/15</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">23</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/16</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">24</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev e">春彼岸(明け)</div></div>
+  <div class="ky">旧2/17</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">25</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev k">桜始開</div></div>
+  <div class="ky">旧2/19</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">27</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/20</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">28</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/21</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">29</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/22</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">30</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/23</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">31</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev k">雷乃発声</div></div>
+  <div class="ky">旧2/24</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">4月</span><span class="alias">卯月</span></h2>
+    <div class="month-sekki">清明 4/5 09:17　／　穀雨 4/20 16:17</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/26</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">3</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/27</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">4</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/28</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">5</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev s">清明</div><div class="ev k">玄鳥至</div></div>
+  <div class="ky">旧2/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">6</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧2/30</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">7</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev e">花祭り</div></div>
+  <div class="ky">旧3/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/3</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">10</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev k">鴻雁北</div></div>
+  <div class="ky">旧3/4</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">11</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/6</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">13</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/7</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">14</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev k">虹始見</div></div>
+  <div class="ky">旧3/9</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/10</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">17</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev e">春土用入り</div></div>
+  <div class="ky">旧3/11</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">18</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">19</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/13</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">20</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev s">穀雨</div><div class="ev k">葭始生</div></div>
+  <div class="ky">旧3/14</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">21</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/15</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/16</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">23</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/17</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">24</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/18</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">25</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev k">霜止出苗</div></div>
+  <div class="ky">旧3/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/20</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">27</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/21</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">28</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev e">土用の丑の日</div></div>
+  <div class="ky">旧3/22</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">29</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev h">昭和の日</div></div>
+  <div class="ky">旧3/23</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">30</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev k">牡丹華</div></div>
+  <div class="ky">旧3/24</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">5月</span><span class="alias">皐月</span></h2>
+    <div class="month-sekki">立夏 5/6 02:24　／　小満 5/21 15:17</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:6"><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell sat">
+  <div class="r1"><span class="dn">1</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧3/25</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">2</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev e">八十八夜</div></div>
+  <div class="ky">旧3/26</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">3</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev h">憲法記念日</div></div>
+  <div class="ky">旧3/27</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">4</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev h">みどりの日</div></div>
+  <div class="ky">旧3/28</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">5</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev h">こどもの日</div></div>
+  <div class="ky">旧3/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">6</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev s">立夏</div><div class="ev k">蛙始鳴</div></div>
+  <div class="ky">旧4/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">7</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/2</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">8</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/3</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">9</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">10</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">11</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev k">蚯蚓出</div></div>
+  <div class="ky">旧4/6</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/7</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">13</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">14</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/9</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">15</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/10</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">16</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev k">竹笋生</div></div>
+  <div class="ky">旧4/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">17</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">18</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/13</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">19</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/14</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">20</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/15</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">21</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev s">小満</div><div class="ev k">蚕起食桑</div></div>
+  <div class="ky">旧4/16</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">22</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/17</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">23</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">24</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">25</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/20</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev k">紅花栄</div></div>
+  <div class="ky">旧4/21</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">27</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/22</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">28</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/23</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">29</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/24</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">30</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">31</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev k">麦秋至</div></div>
+  <div class="ky">旧4/26</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">6月</span><span class="alias">水無月</span></h2>
+    <div class="month-sekki">芒種 6/6 06:25　／　夏至 6/21 23:10</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/27</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/28</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">3</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">4</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧4/30</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">5</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/1</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">6</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev s">芒種</div><div class="ev k">蟷螂生</div></div>
+  <div class="ky">旧5/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">7</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/3</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">10</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/6</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">11</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev k">腐草為蛍</div><div class="ev e">入梅</div></div>
+  <div class="ky">旧5/7</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">12</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/8</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">13</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/9</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">14</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/10</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev k">梅子黄</div></div>
+  <div class="ky">旧5/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">17</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/13</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">18</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/14</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">19</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/15</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">20</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/16</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">21</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev s">夏至</div><div class="ev k">乃東枯</div></div>
+  <div class="ky">旧5/17</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">23</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">24</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/20</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">25</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/21</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">26</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev k">菖蒲華</div></div>
+  <div class="ky">旧5/22</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">27</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/23</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">28</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/24</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">29</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">30</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/26</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">7月</span><span class="alias">文月</span></h2>
+    <div class="month-sekki">小暑 7/7 16:36　／　大暑 7/23 10:04</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev k">半夏生</div></div>
+  <div class="ky">旧5/27</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev e">半夏生</div></div>
+  <div class="ky">旧5/28</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">3</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧5/29</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">4</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">5</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">6</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/3</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">7</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev s">小暑</div><div class="ev k">温風至</div><div class="ev e">七夕</div></div>
+  <div class="ky">旧6/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/6</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">10</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/7</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">11</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev k">蓮始開</div></div>
+  <div class="ky">旧6/9</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">13</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/10</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">14</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/13</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">17</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev k">鷹乃学習</div></div>
+  <div class="ky">旧6/14</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">18</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/15</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">19</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev h">海の日</div></div>
+  <div class="ky">旧6/16</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">20</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev e">夏土用入り</div></div>
+  <div class="ky">旧6/17</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">21</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev e">土用の丑の日</div></div>
+  <div class="ky">旧6/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">23</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev s">大暑</div><div class="ev k">桐始結花</div></div>
+  <div class="ky">旧6/20</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">24</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/21</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">25</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/22</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/23</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">27</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/24</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">28</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev k">土潤溽暑</div></div>
+  <div class="ky">旧6/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">29</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/26</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">30</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/27</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">31</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/28</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">8月</span><span class="alias">葉月</span></h2>
+    <div class="month-sekki">立秋 8/8 02:26　／　処暑 8/23 17:13</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell sun">
+  <div class="r1"><span class="dn">1</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧6/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev k">大雨時行</div><div class="ev e">土用の丑の日</div></div>
+  <div class="ky">旧7/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">3</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">4</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/3</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">5</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">6</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/5</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">7</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/6</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">8</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev s">立秋</div><div class="ev k">涼風至</div></div>
+  <div class="ky">旧7/7</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">10</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/9</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">11</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev h">山の日</div></div>
+  <div class="ky">旧7/10</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">13</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev k">寒蝉鳴</div><div class="ev e">お盆(迎え)</div></div>
+  <div class="ky">旧7/12</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">14</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev e">お盆</div></div>
+  <div class="ky">旧7/13</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">15</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev e">お盆(盆中日)</div></div>
+  <div class="ky">旧7/14</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev e">お盆(送り)</div></div>
+  <div class="ky">旧7/15</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">17</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/16</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">18</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev k">蒙霧升降</div></div>
+  <div class="ky">旧7/17</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">19</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">20</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/19</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">21</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/20</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">22</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/21</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">23</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev s">処暑</div><div class="ev k">綿柎開</div></div>
+  <div class="ky">旧7/22</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">24</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/23</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">25</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/24</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">27</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/26</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">28</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev k">天地始粛</div></div>
+  <div class="ky">旧7/27</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">29</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/28</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">30</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">31</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧7/30</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">9月</span><span class="alias">長月</span></h2>
+    <div class="month-sekki">白露 9/8 05:28　／　秋分 9/23 15:01</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev e">二百十日</div></div>
+  <div class="ky">旧8/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev k">禾乃登</div></div>
+  <div class="ky">旧8/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">3</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/3</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">4</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/4</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">5</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">6</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/6</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">7</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/7</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev s">白露</div><div class="ev k">草露白</div></div>
+  <div class="ky">旧8/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev e">重陽の節句</div></div>
+  <div class="ky">旧8/9</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">10</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/10</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">11</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev e">二百二十日</div></div>
+  <div class="ky">旧8/11</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">12</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">13</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev k">鶺鴒鳴</div></div>
+  <div class="ky">旧8/13</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">14</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/14</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev e">十五夜</div></div>
+  <div class="ky">旧8/15</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/16</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">17</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/17</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">18</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev k">玄鳥去</div></div>
+  <div class="ky">旧8/18</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">19</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/19</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">20</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev h">敬老の日</div><div class="ev e">秋彼岸(入り)</div></div>
+  <div class="ky">旧8/20</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">21</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/21</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/22</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">23</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev h">秋分の日</div><div class="ev s">秋分</div><div class="ev k">雷乃収声</div><div class="ev e">秋彼岸(中日)</div></div>
+  <div class="ky">旧8/23</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">24</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/24</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">25</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/25</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">26</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev e">秋彼岸(明け)</div><div class="ev e">秋社日</div></div>
+  <div class="ky">旧8/26</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">27</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/27</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">28</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev k">蟄虫坯戸</div></div>
+  <div class="ky">旧8/28</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">29</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧8/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">30</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/1</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">10月</span><span class="alias">神無月</span></h2>
+    <div class="month-sekki">寒露 10/8 21:16　／　霜降 10/24 00:32</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:6"><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/2</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">2</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/3</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">3</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev k">水始涸</div></div>
+  <div class="ky">旧9/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">4</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">5</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/6</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">6</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/7</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">7</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev s">寒露</div><div class="ev k">鴻雁来</div></div>
+  <div class="ky">旧9/9</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">9</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/10</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">10</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/11</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">11</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev h">スポーツの日</div></div>
+  <div class="ky">旧9/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev e">十三夜</div></div>
+  <div class="ky">旧9/13</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">13</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev k">菊花開</div></div>
+  <div class="ky">旧9/14</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">14</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/15</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/16</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">16</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/17</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">17</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">18</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev k">蟋蟀在戸</div></div>
+  <div class="ky">旧9/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">19</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/20</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">20</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/21</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">21</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev e">秋土用入り</div></div>
+  <div class="ky">旧9/22</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/23</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">23</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/24</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">24</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev s">霜降</div><div class="ev k">霜始降</div></div>
+  <div class="ky">旧9/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">25</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev e">土用の丑の日</div></div>
+  <div class="ky">旧9/26</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/27</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">27</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/28</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">28</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧9/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">29</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev k">霎時施</div></div>
+  <div class="ky">旧10/1</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">30</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/2</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">31</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/3</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">11月</span><span class="alias">霜月</span></h2>
+    <div class="month-sekki">立冬 11/8 00:38　／　小雪 11/22 22:16</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/5</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">3</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev h">文化の日</div><div class="ev k">楓蔦黄</div></div>
+  <div class="ky">旧10/6</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">4</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/7</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">5</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/8</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">6</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev e">土用の丑の日</div></div>
+  <div class="ky">旧10/9</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">7</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/10</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev s">立冬</div><div class="ev k">山茶始開</div></div>
+  <div class="ky">旧10/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">10</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/13</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">11</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/14</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">12</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/15</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">13</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev k">地始凍</div></div>
+  <div class="ky">旧10/16</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">14</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/17</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev e">七五三</div></div>
+  <div class="ky">旧10/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">17</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/20</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">18</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev k">金盞香</div></div>
+  <div class="ky">旧10/21</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">19</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/22</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">20</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/23</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">21</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/24</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev s">小雪</div><div class="ev k">虹蔵不見</div></div>
+  <div class="ky">旧10/25</div>
+</div><div class="pcell holiday">
+  <div class="r1"><span class="dn">23</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev h">勤労感謝の日</div></div>
+  <div class="ky">旧10/26</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">24</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/27</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">25</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/28</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">26</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧10/29</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">27</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev k">朔風払葉</div></div>
+  <div class="ky">旧10/30</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">28</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">29</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">30</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/3</div>
+</div></div>
+</section>
+<section class="page month">
+  <div class="month-head">
+    <h2><span class="mn">12月</span><span class="alias">師走</span></h2>
+    <div class="month-sekki">大雪 12/7 17:37　／　冬至 12/22 11:42</div>
+  </div>
+  <div class="wdays"><div class="wd sun">日</div><div class="wd">月</div><div class="wd">火</div><div class="wd">水</div><div class="wd">木</div><div class="wd">金</div><div class="wd sat">土</div></div>
+  <div class="pgrid" style="--rows:5"><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell empty"></div><div class="pcell">
+  <div class="r1"><span class="dn">1</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/4</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">2</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev k">橘始黄</div></div>
+  <div class="ky">旧11/5</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">3</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/6</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">4</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/7</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">5</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/8</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">6</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/9</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">7</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev s">大雪</div><div class="ev k">閉塞成冬</div></div>
+  <div class="ky">旧11/10</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">8</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev e">針供養</div></div>
+  <div class="ky">旧11/11</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">9</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/12</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">10</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/13</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">11</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/14</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">12</span><span class="ro">先勝</span></div>
+  <div class="evs"><div class="ev k">熊蟄穴</div></div>
+  <div class="ky">旧11/15</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">13</span><span class="ro">友引</span></div>
+  <div class="evs"><div class="ev e">正月事始め</div></div>
+  <div class="ky">旧11/16</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">14</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/17</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">15</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/18</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">16</span><span class="ro">大安</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/19</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">17</span><span class="ro">赤口</span></div>
+  <div class="evs"><div class="ev k">鱖魚群</div></div>
+  <div class="ky">旧11/20</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">18</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/21</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">19</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/22</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">20</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/23</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">21</span><span class="ro">仏滅</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/24</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">22</span><span class="ro">大安</span></div>
+  <div class="evs"><div class="ev s">冬至</div><div class="ev k">乃東生</div></div>
+  <div class="ky">旧11/25</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">23</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/26</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">24</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/27</div>
+</div><div class="pcell sat">
+  <div class="r1"><span class="dn">25</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/28</div>
+</div><div class="pcell sun">
+  <div class="r1"><span class="dn">26</span><span class="ro">先負</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧11/29</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">27</span><span class="ro">仏滅</span></div>
+  <div class="evs"><div class="ev k">麋角解</div></div>
+  <div class="ky">旧11/30</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">28</span><span class="ro">赤口</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/1</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">29</span><span class="ro">先勝</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/2</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">30</span><span class="ro">友引</span></div>
+  <div class="evs"></div>
+  <div class="ky">旧12/3</div>
+</div><div class="pcell">
+  <div class="r1"><span class="dn">31</span><span class="ro">先負</span></div>
+  <div class="evs"><div class="ev e">大晦日</div></div>
+  <div class="ky">旧12/4</div>
+</div></div>
+</section>
+<section class="page kou">
+  <div class="month-head"><h2><span class="mn">七十二候</span><span class="alias">2027年</span></h2></div>
+  <div class="kou-cols"><table><tr><td class="tm">1/1〜1/4</td><td class="sg">雪下出麦</td><td class="part">末候・冬至</td></tr><tr><td class="tm">1/5〜1/9</td><td class="sg">芹乃栄</td><td class="part">初候・小寒</td></tr><tr><td class="tm">1/10〜1/14</td><td class="sg">水泉動</td><td class="part">次候・小寒</td></tr><tr><td class="tm">1/15〜1/19</td><td class="sg">雉始雊</td><td class="part">末候・小寒</td></tr><tr><td class="tm">1/20〜1/24</td><td class="sg">款冬華</td><td class="part">初候・大寒</td></tr><tr><td class="tm">1/25〜1/29</td><td class="sg">水沢腹堅</td><td class="part">次候・大寒</td></tr><tr><td class="tm">1/30〜2/3</td><td class="sg">鶏始乳</td><td class="part">末候・大寒</td></tr><tr><td class="tm">2/4〜2/8</td><td class="sg">東風解凍</td><td class="part">初候・立春</td></tr><tr><td class="tm">2/9〜2/13</td><td class="sg">黄鶯睍睆</td><td class="part">次候・立春</td></tr><tr><td class="tm">2/14〜2/18</td><td class="sg">魚上氷</td><td class="part">末候・立春</td></tr><tr><td class="tm">2/19〜2/23</td><td class="sg">土脉潤起</td><td class="part">初候・雨水</td></tr><tr><td class="tm">2/24〜2/28</td><td class="sg">霞始靆</td><td class="part">次候・雨水</td></tr><tr><td class="tm">3/1〜3/5</td><td class="sg">草木萌動</td><td class="part">末候・雨水</td></tr><tr><td class="tm">3/6〜3/10</td><td class="sg">蟄虫啓戸</td><td class="part">初候・啓蟄</td></tr><tr><td class="tm">3/11〜3/15</td><td class="sg">桃始笑</td><td class="part">次候・啓蟄</td></tr><tr><td class="tm">3/16〜3/20</td><td class="sg">菜虫化蝶</td><td class="part">末候・啓蟄</td></tr><tr><td class="tm">3/21〜3/25</td><td class="sg">雀始巣</td><td class="part">初候・春分</td></tr><tr><td class="tm">3/26〜3/30</td><td class="sg">桜始開</td><td class="part">次候・春分</td></tr><tr><td class="tm">3/31〜4/4</td><td class="sg">雷乃発声</td><td class="part">末候・春分</td></tr><tr><td class="tm">4/5〜4/9</td><td class="sg">玄鳥至</td><td class="part">初候・清明</td></tr><tr><td class="tm">4/10〜4/14</td><td class="sg">鴻雁北</td><td class="part">次候・清明</td></tr><tr><td class="tm">4/15〜4/19</td><td class="sg">虹始見</td><td class="part">末候・清明</td></tr><tr><td class="tm">4/20〜4/24</td><td class="sg">葭始生</td><td class="part">初候・穀雨</td></tr><tr><td class="tm">4/25〜4/29</td><td class="sg">霜止出苗</td><td class="part">次候・穀雨</td></tr><tr><td class="tm">4/30〜5/5</td><td class="sg">牡丹華</td><td class="part">末候・穀雨</td></tr><tr><td class="tm">5/6〜5/10</td><td class="sg">蛙始鳴</td><td class="part">初候・立夏</td></tr><tr><td class="tm">5/11〜5/15</td><td class="sg">蚯蚓出</td><td class="part">次候・立夏</td></tr><tr><td class="tm">5/16〜5/20</td><td class="sg">竹笋生</td><td class="part">末候・立夏</td></tr><tr><td class="tm">5/21〜5/25</td><td class="sg">蚕起食桑</td><td class="part">初候・小満</td></tr><tr><td class="tm">5/26〜5/30</td><td class="sg">紅花栄</td><td class="part">次候・小満</td></tr><tr><td class="tm">5/31〜6/5</td><td class="sg">麦秋至</td><td class="part">末候・小満</td></tr><tr><td class="tm">6/6〜6/10</td><td class="sg">蟷螂生</td><td class="part">初候・芒種</td></tr><tr><td class="tm">6/11〜6/15</td><td class="sg">腐草為蛍</td><td class="part">次候・芒種</td></tr><tr><td class="tm">6/16〜6/20</td><td class="sg">梅子黄</td><td class="part">末候・芒種</td></tr><tr><td class="tm">6/21〜6/25</td><td class="sg">乃東枯</td><td class="part">初候・夏至</td></tr><tr><td class="tm">6/26〜6/30</td><td class="sg">菖蒲華</td><td class="part">次候・夏至</td></tr></table><table><tr><td class="tm">7/1〜7/6</td><td class="sg">半夏生</td><td class="part">末候・夏至</td></tr><tr><td class="tm">7/7〜7/11</td><td class="sg">温風至</td><td class="part">初候・小暑</td></tr><tr><td class="tm">7/12〜7/16</td><td class="sg">蓮始開</td><td class="part">次候・小暑</td></tr><tr><td class="tm">7/17〜7/22</td><td class="sg">鷹乃学習</td><td class="part">末候・小暑</td></tr><tr><td class="tm">7/23〜7/27</td><td class="sg">桐始結花</td><td class="part">初候・大暑</td></tr><tr><td class="tm">7/28〜8/1</td><td class="sg">土潤溽暑</td><td class="part">次候・大暑</td></tr><tr><td class="tm">8/2〜8/7</td><td class="sg">大雨時行</td><td class="part">末候・大暑</td></tr><tr><td class="tm">8/8〜8/12</td><td class="sg">涼風至</td><td class="part">初候・立秋</td></tr><tr><td class="tm">8/13〜8/17</td><td class="sg">寒蝉鳴</td><td class="part">次候・立秋</td></tr><tr><td class="tm">8/18〜8/22</td><td class="sg">蒙霧升降</td><td class="part">末候・立秋</td></tr><tr><td class="tm">8/23〜8/27</td><td class="sg">綿柎開</td><td class="part">初候・処暑</td></tr><tr><td class="tm">8/28〜9/1</td><td class="sg">天地始粛</td><td class="part">次候・処暑</td></tr><tr><td class="tm">9/2〜9/7</td><td class="sg">禾乃登</td><td class="part">末候・処暑</td></tr><tr><td class="tm">9/8〜9/12</td><td class="sg">草露白</td><td class="part">初候・白露</td></tr><tr><td class="tm">9/13〜9/17</td><td class="sg">鶺鴒鳴</td><td class="part">次候・白露</td></tr><tr><td class="tm">9/18〜9/22</td><td class="sg">玄鳥去</td><td class="part">末候・白露</td></tr><tr><td class="tm">9/23〜9/27</td><td class="sg">雷乃収声</td><td class="part">初候・秋分</td></tr><tr><td class="tm">9/28〜10/2</td><td class="sg">蟄虫坯戸</td><td class="part">次候・秋分</td></tr><tr><td class="tm">10/3〜10/7</td><td class="sg">水始涸</td><td class="part">末候・秋分</td></tr><tr><td class="tm">10/8〜10/12</td><td class="sg">鴻雁来</td><td class="part">初候・寒露</td></tr><tr><td class="tm">10/13〜10/17</td><td class="sg">菊花開</td><td class="part">次候・寒露</td></tr><tr><td class="tm">10/18〜10/23</td><td class="sg">蟋蟀在戸</td><td class="part">末候・寒露</td></tr><tr><td class="tm">10/24〜10/28</td><td class="sg">霜始降</td><td class="part">初候・霜降</td></tr><tr><td class="tm">10/29〜11/2</td><td class="sg">霎時施</td><td class="part">次候・霜降</td></tr><tr><td class="tm">11/3〜11/7</td><td class="sg">楓蔦黄</td><td class="part">末候・霜降</td></tr><tr><td class="tm">11/8〜11/12</td><td class="sg">山茶始開</td><td class="part">初候・立冬</td></tr><tr><td class="tm">11/13〜11/17</td><td class="sg">地始凍</td><td class="part">次候・立冬</td></tr><tr><td class="tm">11/18〜11/21</td><td class="sg">金盞香</td><td class="part">末候・立冬</td></tr><tr><td class="tm">11/22〜11/26</td><td class="sg">虹蔵不見</td><td class="part">初候・小雪</td></tr><tr><td class="tm">11/27〜12/1</td><td class="sg">朔風払葉</td><td class="part">次候・小雪</td></tr><tr><td class="tm">12/2〜12/6</td><td class="sg">橘始黄</td><td class="part">末候・小雪</td></tr><tr><td class="tm">12/7〜12/11</td><td class="sg">閉塞成冬</td><td class="part">初候・大雪</td></tr><tr><td class="tm">12/12〜12/16</td><td class="sg">熊蟄穴</td><td class="part">次候・大雪</td></tr><tr><td class="tm">12/17〜12/21</td><td class="sg">鱖魚群</td><td class="part">末候・大雪</td></tr><tr><td class="tm">12/22〜12/26</td><td class="sg">乃東生</td><td class="part">初候・冬至</td></tr><tr><td class="tm">12/27〜12/31</td><td class="sg">麋角解</td><td class="part">次候・冬至</td></tr></table></div>
+</section>
+</body>
+</html>
