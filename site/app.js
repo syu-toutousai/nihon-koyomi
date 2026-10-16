@@ -2,7 +2,7 @@
   const MONTH_ALIAS = ["睦月", "如月", "弥生", "卯月", "皐月", "水無月", "文月", "葉月", "長月", "神無月", "霜月", "師走"];
   const WD = ["日", "月", "火", "水", "木", "金", "土"];
 
-  const state = { years: [], year: null, data: null, notes: {}, pdfYears: [] };
+  const state = { years: [], year: null, data: null, notes: {}, pdfYears: [], today: null };
 
   const $ = (id) => document.getElementById(id);
 
@@ -34,6 +34,15 @@
         state.pdfYears = (await pdfRes.json()).years || [];
       } catch (e) {
         state.pdfYears = [];
+      }
+      const tYear = new Date().getFullYear();
+      if (state.years.includes(tYear)) {
+        try {
+          const tRes = await fetch(`data/koyomi-${tYear}.json`);
+          state.today = { year: tYear, data: await tRes.json() };
+        } catch (e) {
+          state.today = null;
+        }
       }
       await loadYear(state.year);
     } catch (e) {
@@ -95,6 +104,58 @@
     renderSummaries(d);
     renderKou(d);
     renderFooter(d);
+    renderToday();
+  }
+
+  const addDay = (date, n) => {
+    const [y, m, d] = date.split("-").map(Number);
+    const t = new Date(Date.UTC(y, m - 1, d) + n * 86400000);
+    return `${t.getUTCFullYear()}-${pad(t.getUTCMonth() + 1)}-${pad(t.getUTCDate())}`;
+  };
+
+  function renderToday() {
+    const el = $("todayCard");
+    if (!state.today) {
+      el.hidden = true;
+      return;
+    }
+    const data = state.today.data;
+    const now = new Date();
+    const dateStr = `${data.year}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+    const day = data.days.find((x) => x.date === dateStr);
+    if (!day) {
+      el.hidden = true;
+      return;
+    }
+    let curIdx = -1;
+    data.sekki.forEach((s, i) => { if (s.date <= dateStr) curIdx = i; });
+    const curS = curIdx >= 0 ? data.sekki[curIdx] : null;
+    const nextS = curIdx + 1 < data.sekki.length ? data.sekki[curIdx + 1] : null;
+    const kouNow = data.kou.find((k) => k.from <= dateStr && dateStr <= k.to);
+    const m = now.getMonth() + 1;
+    const d = now.getDate();
+
+    const rows = [];
+    rows.push(`<div class="tc-row"><span class="k">旧暦</span><span class="v">${day.kyureki.leap ? "閏" : ""}${day.kyureki.m}月${day.kyureki.d}日</span></div>`);
+    rows.push(`<div class="tc-row"><span class="k">干支</span><span class="v">${data.etojun}年 ${day.eto}の日</span></div>`);
+    if (curS) {
+      rows.push(`<div class="tc-row"><span class="k">二十四節気</span><span class="v">${curS.name}（${md(curS.date)}〜${nextS ? md(addDay(nextS.date, -1)) : ""}）</span></div>`);
+    }
+    if (kouNow) {
+      rows.push(`<div class="tc-row"><span class="k">七十二候</span><span class="v">${kouNow.name}（${kouNow.part}・${md(kouNow.from)}〜${md(kouNow.to)}）</span></div>`);
+    }
+    if (day.holiday) rows.push(`<div class="tc-row tc-holiday"><span class="k">祝日</span><span class="v">${day.holiday}</span></div>`);
+    if (day.events && day.events.length) rows.push(`<div class="tc-row"><span class="k">行事・雑節</span><span class="v">${day.events.join("、")}</span></div>`);
+    rows.push(`<div class="tc-hint">${state.year === data.year ? "クリックで今日を詳細表示" : `${data.year}年の暦で今日を表示 →`}</div>`);
+
+    el.innerHTML = `
+      <div class="tc-left">
+        <div class="tc-label">今日の暦</div>
+        <div class="tc-date"><span class="tc-era">${data.era}</span>${m}月${d}日<span class="tc-wd">（${WD[day.wd]}）</span></div>
+        <div class="tc-rokuyo${day.rokuyo === "大安" ? "" : " mild"}">${day.rokuyo}</div>
+      </div>
+      <div class="tc-right">${rows.join("")}</div>`;
+    el.hidden = false;
   }
 
   function renderMonth(month, d) {
@@ -285,6 +346,16 @@
   $("months").addEventListener("click", (e) => {
     const cell = e.target.closest(".cell[data-date]");
     if (cell) openDetail(cell.dataset.date);
+  });
+  $("todayCard").addEventListener("click", async () => {
+    if (!state.today) return;
+    const t = state.today;
+    const now = new Date();
+    const dateStr = `${t.year}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+    if (state.year !== t.year) await loadYear(t.year);
+    const cell = document.querySelector(`.cell[data-date="${dateStr}"]`);
+    if (cell) cell.scrollIntoView({ behavior: "smooth", block: "center" });
+    openDetail(dateStr);
   });
   $("detailClose").addEventListener("click", closeDetail);
   $("detail").addEventListener("click", (e) => {
